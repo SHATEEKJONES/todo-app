@@ -21,25 +21,8 @@
       </form>
       <h2>Current Todos</h2>
       <ul id="todoList">
-        <!-- Todos will be inserted here -->
       </ul>
     </div>
-    <script>
-      const todoList = document.getElementById('todoList');
-
-      fetch("/api/todos")
-        .then((response) => response.json())
-        .then((data) => {
-          data.forEach(todos => {
-            todoList.innerHTML +=
-            `
-           <input type="hidden" name="todoName" value="${todos.title}">
-            <p>${todos.title}</p>
-            `
-            console.log(todos.title)
-          });
-        });
-    </script>
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
   </body>
 </html>
