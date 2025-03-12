@@ -23,8 +23,21 @@ button {
     cursor: pointer;
 }
 
+#removebutton {
+    padding: 8px 16px;
+    background-color: #d60000;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
 button:hover {
     background-color: #45a049;
+}
+
+#removebutton:hover {
+    background-color: #ff0000;
 }
 
 ul {

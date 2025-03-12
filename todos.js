@@ -24,7 +24,6 @@ router.get('/todos', async (req, res) => {
 // CREATE todo
 router.post('/todos', async (req, res) => {
     const todo = new Todo(req.body);
-    console.log("blob", todo);
     
     try {
         const newTodo = await todo.save();
