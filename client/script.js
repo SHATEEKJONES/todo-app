@@ -14,13 +14,13 @@ async function fetchTodos() {
 // Display todos in the list
 function displayTodos(todos) {
   let todotext = '';
-  todos.forEach(todos => {
-    console.log(todos)
+  todos.forEach(todo => {
+    console.log(todo)
     todotext += `
     <div>
-       <input type="hidden" name="todoName" value="${todos.title}">
-        <p>${todos.title}</p>
-        <button onclick="removeTodo()" id="removebutton">Remove</button> 
+       <input type="hidden" name="todoName" value="${todo.title}">
+        <p>${todo.title}</p>
+        <button onclick="removeTodo('${todo._id}')" id="removebutton">Remove</button> 
     </div>
         `;
   });
@@ -60,7 +60,7 @@ todoForm.addEventListener("submit", async (e) => {
 });
 
 
-
+//REMOVE FUNCTION BLIKCY
 async function removeTodo(todoId) { 
   event.preventDefault(); 
   try {  
