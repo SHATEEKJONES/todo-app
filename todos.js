@@ -57,5 +57,17 @@ router.delete('/todos/:id', async (req, res) => {
     }
 });
 
+router.put('/todos/:id', async (req, res) => {
+    const { id } = req.params;
+    
+
+    try {
+        const todo = await Todo.findByIdAndUpdate(id, req.body);
+        if (!todo) return res.status(404).json({ message: 'Todo not found' });
+        res.json({ message: 'Todo updated' });
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to update todo' });
+    }
+});
 
 export { router as todoRouter };

@@ -20,7 +20,8 @@ function displayTodos(todos) {
     <div>
        <input type="hidden" name="todoName" value="${todo.title}">
         <p>${todo.title}</p>
-        <button onclick="removeTodo('${todo._id}')" id="removebutton">Remove</button> 
+        <button onclick="removeTodo('${todo._id}')" id="removebutton">Remove</button>
+        <button onclick="updateTodo('${todo._id}')" id="updButton">Update</button>  
     </div>
         `;
   });
@@ -77,6 +78,40 @@ async function removeTodo(todoId) {
   } catch (error) {  
     console.log("Error removing todo: " + error);  
   }  
+}  
+
+async function updateTodo(todoId) { 
+  event.preventDefault(); 
+
+  const updateData = { title: todoInput.value };
+
+  const jsonData = JSON.stringify(updateData);
+  
+  console.log(jsonData)
+  
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: jsonData
+    };
+
+    fetch(`/api/todos/${todoId}`, options)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json(); // Parse the JSON response
+  })
+  .then(data => {
+    console.log('Resource updated successfully:', data);
+    fetchTodos();
+  })
+  .catch(error => {
+    console.error('There was a problem with your fetch operation:', error);
+  });
+
 }  
 
 // Load todos when page loads
