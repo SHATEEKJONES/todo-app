@@ -31,6 +31,14 @@ button {
     cursor: pointer;
 }
 
+#updButton {
+    padding: 8px 16px;
+    background-color: #fded02;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 
 button:hover {
     background-color: #45a049;
@@ -38,6 +46,10 @@ button:hover {
 
 #removebutton:hover {
     background-color: #ff0000;
+}
+
+#updButton:hover {
+    background-color: #c6c300;
 }
 
 ul {
